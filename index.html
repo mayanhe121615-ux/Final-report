@@ -26,17 +26,7 @@ body{
     background:#ececec;
     font-family:"Noto Serif TC","Microsoft JhengHei",serif;
 }
-.wrapper{
-    display:flex;
-    width:100vw;
-    height:100vh;
 
-    overflow-x:scroll;
-    overflow-y:hidden;
-
-    scroll-snap-type:x mandatory;
-    scroll-behavior:smooth;
-}
 
 /* 進度條 */
 #progress-bar{
@@ -63,7 +53,6 @@ body{
 
     position:relative;
 
-    scroll-snap-align:start;
 
     padding:60px 40px;
 
@@ -83,7 +72,6 @@ body{
     opacity:1;
     pointer-events:auto;
 }
-
 .page:hover{
     transform:translateY(-5px);
 }
@@ -149,7 +137,7 @@ p{
 }
 .page img{
     max-width:100%;
-    max-height:70vh;
+    max-height:80vh;
     object-fit:contain;
 }
 </style>
@@ -160,7 +148,7 @@ p{
 <div id="progress-bar"></div>
 
 <div class="container">
-<div class="wrapper">
+
 
 <!-- 封面 -->
 <div class="page">
@@ -274,35 +262,21 @@ p{
     </ul>
 
     <div class="page-number">— 7 —</div>
-</div>
-</div>    
+</div>   
 </div>
 
 <script>
-    document.addEventListener("keydown", function(e){
-    const wrapper = document.querySelector(".wrapper");
-
-    if(e.key === "ArrowRight"){
-        wrapper.scrollBy({ left: wrapper.clientWidth, behavior: "smooth" });
-    }
-
-    if(e.key === "ArrowLeft"){
-        wrapper.scrollBy({ left: -wrapper.clientWidth, behavior: "smooth" });
-    }
-});
-let pages = document.querySelectorAll(".page");
-let current = 0;
-
-/* 顯示第一頁 */
-pages[current].classList.add("active");
-
-/* 點一下翻頁 */
-document.addEventListener("click", function(){
+    let pages = document.querySelectorAll(".page");
+    let current = 0;
+    /* 顯示第一頁 */
+    pages[current].classList.add("active");
+    /* 點一下翻頁 */
+    document.addEventListener("click", function(){
     nextPage();
 });
 
 /* 鍵盤翻頁 */
-document.addEventListener("keydown", function(e){
+    document.addEventListener("keydown", function(e){
     if(e.key === "ArrowRight" || e.key === "ArrowDown"){
         nextPage();
     }
@@ -311,19 +285,19 @@ document.addEventListener("keydown", function(e){
     }
 });
 
-function showPage(index){
+    function showPage(index){
     pages.forEach(p => p.classList.remove("active"));
     pages[index].classList.add("active");
 }
 
-function nextPage(){
+    function nextPage(){
     if(current < pages.length - 1){
         current++;
         showPage(current);
     }
 }
 
-function prevPage(){
+    function prevPage(){
     if(current > 0){
         current--;
         showPage(current);
