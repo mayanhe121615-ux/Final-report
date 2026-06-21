@@ -68,9 +68,9 @@ body{
 }
 
 /* 目前顯示的頁 */
-.page.active{
-    opacity:1 !important;
-    pointer-events:auto !important;
+.page:first-child {
+    opacity: 1;
+    pointer-events: auto;
 }
 .page:hover{
     transform:translateY(-5px);
@@ -266,46 +266,49 @@ p{
 </div>
 
 <script>
-   document.addEventListener("DOMContentLoaded", function(){
+  document.addEventListener("DOMContentLoaded", function () {
 
     let pages = document.querySelectorAll(".page");
     let current = 0;
 
+    // 安全保護（避免空）
+    if (pages.length === 0) return;
+
     pages[current].classList.add("active");
 
-    document.addEventListener("click", function(){
+    document.addEventListener("click", function () {
         nextPage();
     });
 
-    document.addEventListener("keydown", function(e){
-        if(e.key === "ArrowRight" || e.key === "ArrowDown"){
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") {
             nextPage();
         }
-        if(e.key === "ArrowLeft" || e.key === "ArrowUp"){
+        if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
             prevPage();
         }
     });
 
-    function showPage(index){
+    function showPage(index) {
         pages.forEach(p => p.classList.remove("active"));
         pages[index].classList.add("active");
     }
 
-    function nextPage(){
-        if(current < pages.length - 1){
+    function nextPage() {
+        if (current < pages.length - 1) {
             current++;
             showPage(current);
         }
     }
 
-    function prevPage(){
-        if(current > 0){
+    function prevPage() {
+        if (current > 0) {
             current--;
             showPage(current);
         }
     }
 
-}); 
+});
 </script>
 
 </body>
