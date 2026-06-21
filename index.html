@@ -14,7 +14,7 @@
 }
 
 body{
-    background:#dcdcdc;
+    background:#ececec;
     font-family:"Noto Serif TC","Microsoft JhengHei",serif;
     color:#222;
     line-height:2;
@@ -31,17 +31,21 @@ body{
 
 /* page */
 .page{
-    width:800px;
-    min-height:700px;
-    background:white;
+    width:720px;
+    min-height:1020px;
+    background:#fffef8;
     margin:50px auto;
     padding:60px 70px;
     box-shadow:0 0 20px rgba(0,0,0,0.15);
     border-radius:12px;
     position:relative;
     scroll-snap-align:start;
+    transition:.3s;
 }
-
+.page:hover{
+    transform:translateY(-5px);
+}
+    
 /* 封面 */
 .cover{
     text-align:center;
@@ -54,18 +58,22 @@ body{
 
 /* 文字 */
 .chapter-title{
-    font-size:32px;
+    font-size:42px;
+    text-align:center;
+    letter-spacing:4px;
     font-weight:bold;
     color:#002FA7;
-    margin-bottom:40px;
+    margin-top:100px;
+    margin-bottom:60px;
     border-bottom:3px solid #002FA7;
     padding-bottom:10px;
 }
 
 .story{
     font-size:22px;
-    text-align:center;
-    margin-bottom:40px;
+    text-align:left;
+    max-width:580px;
+    margin:auto;
 }
 
 .section-title{
@@ -103,14 +111,26 @@ li{
 }
 
 /* page number */
-.page-number{
+page-number{
     position:absolute;
     bottom:25px;
     left:0;
     right:0;
     text-align:center;
-    color:#002FA7;
-    font-size:20px;
+    color:#999;
+    font-size:16px;
+}
+    quote{
+    text-align:center;
+    color:#666;
+    font-style:italic;
+    margin:40px 0;
+}
+    spacer{
+    height:100px;
+}
+.info-page{
+    background:#f7f9fc;
 }
 </style>
 </head>
@@ -134,14 +154,15 @@ li{
     <div class="story">
         <p>她離開的第 49 天。</p>
         <p>她的信箱收到一封通知。</p>
-        <p>「我們很久沒有看到您登入了。」</p>
+       <p class="quote">「我們很久沒有看到您登入了。」</p>
         <p>「請點擊以下連結確認帳戶狀態。」</p>
         <p>她當然不會點。</p>
+        <div class="spacer"></div>
         <p>但系統不知道。</p>
       
     </div>
 
-    <div class="page-number">1</div>
+    <div class="page-number">— 1 —</div>
 </div>
 
 <!-- ================= 小說第2頁 ================= -->
@@ -150,6 +171,7 @@ li{
          <p>Spotify 還在推薦新歌。</p>
         <p>YouTube 還在推她喜歡的影片。</p>
         <p>購物網站還在提醒她：「你加入購物車的商品現在特價喔！」</p>
+        <div class="spacer"></div>
         <p>世界沒有停止。</p>
         <p>演算法也沒有。</p>
         <p>它們不知道什麼叫死亡。</p>
@@ -157,7 +179,7 @@ li{
         <p>你有沒有登入、有沒有點擊、有沒有消費。</p>
     </div>
 
-    <div class="page-number">2</div>
+    <div class="page-number">— 2 —</div>
 </div>
 
 <!-- ================= 小說第3頁 ================= -->
@@ -171,11 +193,11 @@ li{
         <p>這個世界還在假裝她存在。</p>
     </div>
 
-    <div class="page-number">3</div>
+    <div class="page-number">— 3 —</div>
 </div>
 
 <!-- ================= 解說1 ================= -->
-<div class="page">
+<div class="page info-page">
     <div class="section-title">正式解說｜演算法與數位存在</div>
 
     <div class="sub-title">演算法如何運作？</div>
@@ -189,11 +211,11 @@ li{
         <li>消費行為</li>
     </ul>
 
-    <div class="page-number">4</div>
+    <div class="page-number">— 4 —</div>
 </div>
 
 <!-- ================= 解說2 ================= -->
-<div class="page">
+<div class="page info-page">
     <div class="section-title">平台只認「活躍度」的機械邏輯</div>
 
     <p>系統只判斷活躍與不活躍，不理解死亡。</p>
@@ -202,11 +224,11 @@ li{
 
     <p>數位足跡仍持續存在。</p>
 
-    <div class="page-number">5</div>
+    <div class="page-number">— 5 —</div>
 </div>
 
 <!-- ================= 解說3 ================= -->
-<div class="page">
+<div class="page info-page">
     <div class="section-title">【現實問題】與倫理困境</div>
 
     <ul>
@@ -215,11 +237,11 @@ li{
         <li>AI 可能重建人格</li>
     </ul>
 
-    <div class="page-number">6</div>
+    <div class="page-number">— 6 —</div>
 </div>
 
 <!-- ================= 解說4 ================= -->
-<div class="page">
+<div class="page info-page">
     <div class="section-title">【行動小整理】數位遺產管理</div>
 
     <p>應提前整理數位帳號與資料。</p>
@@ -230,7 +252,7 @@ li{
         <li>清理長期未使用服務</li>
     </ul>
 
-    <div class="page-number">7</div>
+    <div class="page-number">— 7 —</div>
 </div>
 
 </div>
