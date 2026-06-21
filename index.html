@@ -22,7 +22,8 @@ html, body{
 
 body{
     margin:0;
-    overflow:hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     background:#ececec;
     font-family:"Noto Serif TC","Microsoft JhengHei",serif;
 }
@@ -48,11 +49,9 @@ body{
 
 /* 每一頁 */
 .page{
- flex:0 0 100vw;
-    height:100vh;
-
+    width:100%;
+    min-height:100vh;
     position:relative;
-
 
     padding:60px 40px;
 
@@ -60,18 +59,9 @@ body{
     flex-direction:column;
     justify-content:flex-start;
     align-items:center;
-
-    opacity:0;
-    pointer-events:none;
-
-    transition:opacity 0.4s ease;
 }
 
-/* 目前顯示的頁 */
-.page:first-child {
-    opacity: 1;
-    pointer-events: auto;
-}
+
 .page:hover{
     transform:translateY(-5px);
 }
@@ -265,51 +255,7 @@ p{
 </div>   
 </div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
 
-    let pages = document.querySelectorAll(".page");
-    let current = 0;
-
-    // 安全保護（避免空）
-    if (pages.length === 0) return;
-
-    pages[current].classList.add("active");
-
-    document.addEventListener("click", function () {
-        nextPage();
-    });
-
-    document.addEventListener("keydown", function (e) {
-        if (e.key === "ArrowRight" || e.key === "ArrowDown") {
-            nextPage();
-        }
-        if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
-            prevPage();
-        }
-    });
-
-    function showPage(index) {
-        pages.forEach(p => p.classList.remove("active"));
-        pages[index].classList.add("active");
-    }
-
-    function nextPage() {
-        if (current < pages.length - 1) {
-            current++;
-            showPage(current);
-        }
-    }
-
-    function prevPage() {
-        if (current > 0) {
-            current--;
-            showPage(current);
-        }
-    }
-
-});
-</script>
 
 </body>
 </html>
