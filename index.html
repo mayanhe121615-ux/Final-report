@@ -163,17 +163,14 @@ li{
 
 /* 進度條 */
 #progress-bar{
+    height:4px;
     position:fixed;
     top:0;
     left:0;
     height:4px;
     width:0%;
     background:#002FA7;
-    z-index:9999;
-
-    transform-origin:left;
-    transform:scaleX(0);
-    transition:transform 0.15s linear;
+    transition:width 0.1s linear;
 }
 
 /* 章節提示 */
