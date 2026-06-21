@@ -12,58 +12,53 @@
     box-sizing:border-box;
 }
 
-html, body{
-    height:100%;
+    
+.body{
+<div id="progress-bar"></div>
     background:#ececec;
     font-family:"Noto Serif TC","Microsoft JhengHei",serif;
     color:#222;
     line-height:2;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    overflow-y:scroll;
+    height:100vh;
 }
 
-body{
-    margin:0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background:#ececec;
-    font-family:"Noto Serif TC","Microsoft JhengHei",serif;
-}
-
-
-/* 進度條 */
-#progress-bar{
-    position:fixed;
-    top:0;
-    left:0;
-    height:4px;
-    width:0%;
-    background:#002FA7;
-    z-index:9999;
-}
-
-/* 容器 */
 .container{
     max-width:100%;
-    margin:0;
-    padding-bottom:0;
+    margin:auto;
+    padding-bottom:60px;
 }
 
-/* 每一頁 */
+/* page */
 .page{
-    width:100%;
-    min-height:100vh;
+    width:720px;
+    min-height:1020px;
+    background:white;
+    margin:50px auto;
+    padding:60px 70px;
+    box-shadow:0 0 20px rgba(0,0,0,0.15);
+    border-radius:12px;
     position:relative;
-
-    padding:60px 40px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start;
-    align-items:center;
+    scroll-snap-align:start;
+    transition:.3s;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    transition: transform .5s ease, box-shadow .3s;
 }
-
-
 .page:hover{
     transform:translateY(-5px);
+}
+    
+/* 封面 */
+.cover{
+    text-align:center;
+}
+
+.cover img{
+    width:100%;
+    max-width:700px;
 }
 
 /* 文字 */
@@ -83,12 +78,27 @@ body{
     font-size:30px;
     font-weight:bold;
     color:#002FA7;
+    margin-top:10px;
 }
 
 .story{
     font-size:22px;
+    text-align:left;
     max-width:580px;
     margin:auto;
+}
+
+.section-title{
+    font-size:28px;
+    font-weight:bold;
+    color:#002FA7;
+    margin-bottom:25px;
+}
+
+.sub-title{
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:15px;
 }
 
 p{
@@ -97,80 +107,95 @@ p{
     text-indent:2em;
 }
 
-.quote{
-    text-align:center;
-    color:#666;
-    font-style:italic;
+ul{
+    margin-left:30px;
+    margin-bottom:25px;
 }
 
+li{
+    font-size:20px;
+    margin-bottom:12px;
+}
+
+.highlight{
+    color:#002FA7;
+    font-weight:bold;
+}
+
+/* page number */
 .page-number{
     position:absolute;
     bottom:25px;
-    left:50%;
-    transform:translateX(-50%);
+    left:0;
+    right:0;
     text-align:center;
     color:#999;
     font-size:16px;
 }
-.info-page .story,
-.info-page .section-title,
-.info-page p,
-.info-page ul{
-    margin-bottom:10px;
+.quote{
+    text-align:center;
+    color:#666;
+    font-style:italic;
+    margin:40px 0;
 }
 .spacer{
     height:100px;
 }
-
 .info-page{
     background:#f7f9fc;
 }
-.page img{
-    max-width:100%;
-    max-height:80vh;
-    object-fit:contain;
+#progress-bar{
+    position:fixed;
+    top:0;
+    left:0;
+    height:4px;
+    width:0%;
+    background:#002FA7;
+    z-index:9999;
 }
 </style>
 </head>
 
 <body>
 
-<div id="progress-bar"></div>
-
 <div class="container">
-<div class="page active">
 
-<!-- 封面 -->
+<!-- ================= 封面 ================= -->
 <div class="page">
-    <img src="封面.png" style="width:100%;">
-</div>
-
-<!-- 第1頁 -->
-<div class="page">
-    <div class="chapter-title">
-        <div class="chapter-no">第四章</div>
-        <div class="chapter-text">系統沒有發現她已經離開了</div>
+    <div class="cover">
+        <img src="封面.png" alt="封面">
     </div>
+     </div>
+    
+
+<!-- ================= 小說第1頁 ================= -->
+<div class="page">
+  <div class="chapter-title">
+    <div class="chapter-no">第四章</div>
+    <div class="chapter-text">系統沒有發現她已經離開了</div>
+</div>
 
     <div class="story">
         <p>她離開的第 49 天。</p>
         <p>她的信箱收到一封通知。</p>
-        <p class="quote">「我們很久沒有看到您登入了。」</p>
+       <p class="quote">「我們很久沒有看到您登入了。」</p>
         <p>「請點擊以下連結確認帳戶狀態。」</p>
         <p>她當然不會點。</p>
         <div class="spacer"></div>
         <p>但系統不知道。</p>
+      
     </div>
 
     <div class="page-number">— 1 —</div>
 </div>
 
-<!-- 第2頁 -->
+<!-- ================= 小說第2頁 ================= -->
 <div class="page">
     <div class="story">
-        <p>Spotify 還在推薦新歌。</p>
-        <p>YouTube 還在推影片。</p>
-        <p>購物網站還在提醒她。</p>
+         <p>Spotify 還在推薦新歌。</p>
+        <p>YouTube 還在推她喜歡的影片。</p>
+        <p>購物網站還在提醒她：「你加入購物車的商品現在特價喔！」</p>
+        <div class="spacer"></div>
         <p>世界沒有停止。</p>
         <p>演算法也沒有。</p>
         <p>它們不知道什麼叫死亡。</p>
@@ -181,7 +206,7 @@ p{
     <div class="page-number">— 2 —</div>
 </div>
 
-<!-- 第3頁 -->
+<!-- ================= 小說第3頁 ================= -->
 <div class="page">
     <div class="story">
         <p>某天，她媽媽滑到她的帳號。</p>
@@ -190,11 +215,11 @@ p{
         <p>不是因為思念。</p>
         <p>而是因為——</p>
         <p>這個世界還在假裝她存在。</p>
-
     </div>
 
     <div class="page-number">— 3 —</div>
 </div>
+
 <!-- ================= 解說1 ================= -->
 <div class="page info-page">
     <div class="section-title">正式解說｜演算法與數位存在</div>
@@ -252,10 +277,25 @@ p{
     </ul>
 
     <div class="page-number">— 7 —</div>
-</div>   
 </div>
 
+</div>
+<script>
+window.addEventListener("scroll", function () {
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (scrollTop / scrollHeight) * 100;
 
-
+    document.getElementById("progress-bar").style.width = scrolled + "%";
+});
+    document.addEventListener("keydown", function(e){
+    if(e.key === "ArrowDown"){
+        window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+    }
+    if(e.key === "ArrowUp"){
+        window.scrollBy({ top: -window.innerHeight, behavior: "smooth" });
+    }
+});
+</script>
 </body>
 </html>
