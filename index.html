@@ -12,26 +12,10 @@
     padding:0;
     box-sizing:border-box;
 }
-<script>
-window.addEventListener("scroll", function () {
-    const scrollTop = document.documentElement.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (scrollTop / scrollHeight) * 100;
 
-    document.getElementById("progress-bar").style.width = scrolled + "%";
-});
-    document.addEventListener("keydown", function(e){
-    if(e.key === "ArrowDown"){
-        window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
-    }
-    if(e.key === "ArrowUp"){
-        window.scrollBy({ top: -window.innerHeight, behavior: "smooth" });
-    }
-});
-</script>
     
 .body{
-    <div id="progress-bar"></div>
+<div id="progress-bar"></div>
     background:#ececec;
     font-family:"Noto Serif TC","Microsoft JhengHei",serif;
     color:#222;
@@ -169,7 +153,6 @@ li{
     width:0%;
     background:#002FA7;
     z-index:9999;
-    transition:width .2s;
 }
 </style>
 </head>
@@ -298,6 +281,22 @@ li{
 </div>
 
 </div>
+<script>
+window.addEventListener("scroll", function () {
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (scrollTop / scrollHeight) * 100;
 
+    document.getElementById("progress-bar").style.width = scrolled + "%";
+});
+    document.addEventListener("keydown", function(e){
+    if(e.key === "ArrowDown"){
+        window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+    }
+    if(e.key === "ArrowUp"){
+        window.scrollBy({ top: -window.innerHeight, behavior: "smooth" });
+    }
+});
+</script>
 </body>
 </html>
