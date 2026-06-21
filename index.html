@@ -22,6 +22,7 @@ html, body{
 
 /* 🔥 scroll 容器 */
 body{
+    height:100vh;
     overflow-y:scroll;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
@@ -41,16 +42,23 @@ body{
 /* 容器 */
 .container{
     max-width:100%;
-    margin:auto;
-    padding-bottom:60px;
+    margin:0;
+    padding-bottom:0;
 }
 
 /* 每一頁 */
 .page{
-    width:720px;
-    min-height:1020px;
-    background:white;
-    margin:50px auto;
+    width:100%;
+    height:100vh;          /* ⭐關鍵：一頁等於一個螢幕 */
+    margin:0;
+
+    padding:60px 70px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    scroll-snap-align:start;
     padding:60px 70px;
     box-shadow:0 0 20px rgba(0,0,0,0.15);
     border-radius:12px;
