@@ -12,13 +12,32 @@
     padding:0;
     box-sizing:border-box;
 }
+<script>
+window.addEventListener("scroll", function () {
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (scrollTop / scrollHeight) * 100;
 
+    document.getElementById("progress-bar").style.width = scrolled + "%";
+});
+    document.addEventListener("keydown", function(e){
+    if(e.key === "ArrowDown"){
+        window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+    }
+    if(e.key === "ArrowUp"){
+        window.scrollBy({ top: -window.innerHeight, behavior: "smooth" });
+    }
+});
+</script>
+    
 .body{
+    <div id="progress-bar"></div>
     background:#ececec;
     font-family:"Noto Serif TC","Microsoft JhengHei",serif;
     color:#222;
     line-height:2;
-    scroll-snap-type:y mandatory;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
     overflow-y:scroll;
     height:100vh;
 }
@@ -41,6 +60,9 @@
     position:relative;
     scroll-snap-align:start;
     transition:.3s;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    transition: transform .5s ease, box-shadow .3s;
 }
 .page:hover{
     transform:translateY(-5px);
@@ -138,6 +160,16 @@ li{
 }
 .info-page{
     background:#f7f9fc;
+}
+#progress-bar{
+    position:fixed;
+    top:0;
+    left:0;
+    height:4px;
+    width:0%;
+    background:#002FA7;
+    z-index:9999;
+    transition:width .2s;
 }
 </style>
 </head>
