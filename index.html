@@ -23,14 +23,9 @@ html, body{
 
 body{
     margin:0;
-    overflow-x:scroll;
-    overflow-y:hidden;
-
-    display:flex;
-
-    scroll-snap-type:x mandatory;
-    scroll-behavior:smooth;
+    overflow:hidden;
 }
+
 .wrapper{
     display:flex;
     width:100vw;
@@ -64,7 +59,7 @@ body{
 .page{
     flex:0 0 100vw;
     height:100vh;
-
+    position:relative;
     scroll-snap-align:start;
 
     margin:0;
@@ -285,7 +280,7 @@ document.addEventListener("keydown", function(e){
     if(e.key === "ArrowLeft"){
         wrapper.scrollBy({ left: -window.innerWidth, behavior: "smooth" });
     }
-});
+});;
 </script>
 
 </body>
