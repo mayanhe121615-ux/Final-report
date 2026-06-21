@@ -14,7 +14,6 @@
 
     
 body{
-<div id="progress-bar"></div>
     background:#ececec;
     font-family:"Noto Serif TC","Microsoft JhengHei",serif;
     color:#222;
@@ -258,12 +257,36 @@ li{
     border-bottom:3px solid #002FA7;
     margin-bottom:30px;
 }
+.info-box{
+    background:#eef4ff;
+    border-left:5px solid #002FA7;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:30px;
+}
+
+.summary-box{
+    background:white;
+    padding:18px;
+    margin-top:25px;
+    border-radius:10px;
+    box-shadow:0 3px 8px rgba(0,0,0,.08);
+}
+
+.summary-title{
+    color:#002FA7;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.summary-box p{
+    text-indent:0;
+}
 </style>
 </head>
 
 <body>
-
-<div id="reader-ui">
+    <div id="reader-ui">
     <div id="progress-bar"></div>
     <div id="progress-text">0%</div>
     <div id="chapter-hint">第四章｜系統沒有發現她已經離開了</div>
@@ -337,12 +360,12 @@ li{
 
     <div class="sub-title">演算法如何運作？</div>
     <div class="info-box">
-        <p>演算法是一套用來預測使用者行為的系統，它並不理解人類，而是透過數據進行推測與優化。</p>
+        <p>演算法是一套用來預測使用者行為的系統，它會根據各種行為資料建立個人化推薦模型。</p>
     </div>
 
     <div class="card-grid">
         <div class="info-card">
-            <h3>點擊紀錄</h3>
+            <h3>點擊與瀏覽紀錄</h3>
             <p>判斷使用者的興趣標籤。</p>
         </div>
 
@@ -359,13 +382,24 @@ li{
             <p>預測未來可能的消費行為。</p>
         </div>
     </div>
+    <div class="thought-box">
+        演算法並不知道我們是誰，它只知道我們留下了什麼資料。
+    </div>
      <div class="page-number">— 5 —</div>
 </div>
 
 <!-- ================= 解說2 ================= -->
 <div class="page info-page">
-    <div class="card">
-  <div class="sub-title">平台如何判斷使用者？</div>
+    <div class="section-title">
+        平台只認「活躍度」的機械邏輯
+    </div>
+
+    <div class="info-box">
+        <p>
+        對資料庫而言，帳號通常只有活躍與不活躍兩種狀態，
+        系統無法真正理解疾病、情緒或死亡。
+        </p>
+    </div>
         <div class="flow-box">活躍（Active）</div>
         <div class="flow-arrow">↓</div>
         <div class="flow-box">停止登入</div>
@@ -379,13 +413,26 @@ li{
 
 <!-- ================= 解說3 ================= -->
 <div class="page info-page">
-    <div class="section-title">【現實問題】與倫理困境</div>
+    <div class="section-title">現實問題與倫理困境</div>
+    <div class="info-box">
+        <p>數位足跡不會因生命結束而立刻消失，因此可能產生新的社會與倫理問題。</p>
+    </div>
 
     <div class="warning-box">
         <h3>⚠ 數位幽靈通知</h3>
         <p>家人持續收到提醒。</p>
         <p>生日通知再次出現。</p>
         <p>好友推薦仍顯示帳號。</p>
+    </div>
+    <div class="info-box">
+        <p>隨著聲程式AI的發展，未來可能透過</p>
+    </div>
+    <div class="warning-box">
+        <h3>⚠ AI重建人格</h3>
+
+        <p>聲音模擬。</p>
+        <p>對話重建。</p>
+        <p>人格複製。</p>
     </div>
 
     <div class="page-number">— 6 —</div>
