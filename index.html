@@ -13,7 +13,7 @@
     box-sizing:border-box;
 }
 
-body{
+.body{
     background:#ececec;
     font-family:"Noto Serif TC","Microsoft JhengHei",serif;
     color:#222;
@@ -58,15 +58,22 @@ body{
 
 /* 文字 */
 .chapter-title{
-    font-size:42px;
     text-align:center;
-    letter-spacing:4px;
+    margin-top:80px;
+    margin-bottom:60px;
+}
+
+.chapter-no{
+    font-size:20px;
+    letter-spacing:6px;
+    color:#002FA7;
+}
+
+.chapter-text{
+    font-size:30px;
     font-weight:bold;
     color:#002FA7;
-    margin-top:100px;
-    margin-bottom:60px;
-    border-bottom:3px solid #002FA7;
-    padding-bottom:10px;
+    margin-top:10px;
 }
 
 .story{
@@ -111,7 +118,7 @@ li{
 }
 
 /* page number */
-page-number{
+.page-number{
     position:absolute;
     bottom:25px;
     left:0;
@@ -120,13 +127,13 @@ page-number{
     color:#999;
     font-size:16px;
 }
-    quote{
+.quote{
     text-align:center;
     color:#666;
     font-style:italic;
     margin:40px 0;
 }
-    spacer{
+.spacer{
     height:100px;
 }
 .info-page{
@@ -149,7 +156,10 @@ page-number{
 
 <!-- ================= 小說第1頁 ================= -->
 <div class="page">
-    <div class="chapter-title">第四章｜系統沒有發現她已經離開了</div>
+  <div class="chapter-title">
+    <div class="chapter-no">第四章</div>
+    <div class="chapter-text">系統沒有發現她已經離開了</div>
+</div>
 
     <div class="story">
         <p>她離開的第 49 天。</p>
