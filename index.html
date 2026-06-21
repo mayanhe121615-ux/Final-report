@@ -26,7 +26,17 @@ body{
     background:#ececec;
     font-family:"Noto Serif TC","Microsoft JhengHei",serif;
 }
+.wrapper{
+    display:flex;
+    width:100vw;
+    height:100vh;
 
+    overflow-x:scroll;
+    overflow-y:hidden;
+
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+}
 
 /* 進度條 */
 #progress-bar{
@@ -48,12 +58,12 @@ body{
 
 /* 每一頁 */
 .page{
-    width:100vw;
+ flex:0 0 100vw;
     height:100vh;
 
-    position:absolute;
-    top:0;
-    left:0;
+    position:relative;
+
+    scroll-snap-align:start;
 
     padding:60px 40px;
 
@@ -269,6 +279,17 @@ p{
 </div>
 
 <script>
+    document.addEventListener("keydown", function(e){
+    const wrapper = document.querySelector(".wrapper");
+
+    if(e.key === "ArrowRight"){
+        wrapper.scrollBy({ left: wrapper.clientWidth, behavior: "smooth" });
+    }
+
+    if(e.key === "ArrowLeft"){
+        wrapper.scrollBy({ left: -wrapper.clientWidth, behavior: "smooth" });
+    }
+});
 let pages = document.querySelectorAll(".page");
 let current = 0;
 
