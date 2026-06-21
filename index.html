@@ -61,7 +61,12 @@ body{
 
     display:flex;
     flex-direction:column;
-    justify-content:center;
+
+    justify-content:flex-start;  /* ⭐關鍵：不要置中 */
+    align-items:center;
+
+    padding:60px 40px;
+    overflow-y:auto;  /* ⭐避免內容被切掉 */
 }
 
 .page:hover{
@@ -126,6 +131,11 @@ p{
 
 .info-page{
     background:#f7f9fc;
+}
+.page img{
+    max-width:100%;
+    max-height:70vh;
+    object-fit:contain;
 }
 </style>
 </head>
@@ -253,14 +263,6 @@ p{
 </div>
 
 <script>
-window.addEventListener("scroll", function () {
-    const scrollTop = document.documentElement.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrolled = (scrollTop / scrollHeight) * 100;
-
-    document.getElementById("progress-bar").style.width = scrolled + "%";
-});
-
 /* 翻頁 */
 document.addEventListener("keydown", function(e){
     if(e.key === "ArrowDown"){
