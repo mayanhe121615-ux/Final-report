@@ -20,22 +20,13 @@ html, body{
     line-height:2;
 }
 
-
 body{
     margin:0;
     overflow:hidden;
+    background:#ececec;
+    font-family:"Noto Serif TC","Microsoft JhengHei",serif;
 }
 
-.wrapper{
-    display:flex;
-    width:100vw;
-    height:100vh;
-    overflow-x:auto;
-    overflow-y:hidden;
-
-    scroll-snap-type:x mandatory;
-    scroll-behavior:smooth;
-}
 
 /* 進度條 */
 #progress-bar{
@@ -57,21 +48,30 @@ body{
 
 /* 每一頁 */
 .page{
-    flex:0 0 100vw;
+    width:100vw;
     height:100vh;
-    position:relative;
-    scroll-snap-align:start;
 
-    margin:0;
+    position:absolute;
+    top:0;
+    left:0;
+
+    padding:60px 40px;
 
     display:flex;
     flex-direction:column;
-
-    justify-content:flex-start;  /* ⭐關鍵：不要置中 */
+    justify-content:flex-start;
     align-items:center;
 
-    padding:60px 40px;
-    overflow-y:auto;  /* ⭐避免內容被切掉 */
+    opacity:0;
+    pointer-events:none;
+
+    transition:opacity 0.4s ease;
+}
+
+/* 目前顯示的頁 */
+.page.active{
+    opacity:1;
+    pointer-events:auto;
 }
 
 .page:hover{
@@ -269,18 +269,45 @@ p{
 </div>
 
 <script>
-/* 翻頁 */
+let pages = document.querySelectorAll(".page");
+let current = 0;
+
+/* 顯示第一頁 */
+pages[current].classList.add("active");
+
+/* 點一下翻頁 */
+document.addEventListener("click", function(){
+    nextPage();
+});
+
+/* 鍵盤翻頁 */
 document.addEventListener("keydown", function(e){
-    const wrapper = document.querySelector(".wrapper");
-
-    if(e.key === "ArrowRight"){
-        wrapper.scrollBy({ left: window.innerWidth, behavior: "smooth" });
+    if(e.key === "ArrowRight" || e.key === "ArrowDown"){
+        nextPage();
     }
-
-    if(e.key === "ArrowLeft"){
-        wrapper.scrollBy({ left: -window.innerWidth, behavior: "smooth" });
+    if(e.key === "ArrowLeft" || e.key === "ArrowUp"){
+        prevPage();
     }
-});;
+});
+
+function showPage(index){
+    pages.forEach(p => p.classList.remove("active"));
+    pages[index].classList.add("active");
+}
+
+function nextPage(){
+    if(current < pages.length - 1){
+        current++;
+        showPage(current);
+    }
+}
+
+function prevPage(){
+    if(current > 0){
+        current--;
+        showPage(current);
+    }
+}
 </script>
 
 </body>
