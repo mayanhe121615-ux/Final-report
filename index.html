@@ -431,29 +431,42 @@ li{
         對資料庫而言，帳號通常只有活躍與不活躍兩種狀態，
         系統無法真正理解疾病、情緒或死亡。
         </p>
-     <div class="flow-box">使用者行為資料進入系統</div>
+        </div>
+     <!-- 起點 -->
+    <div class="flow-box">使用者行為資料進入系統</div>
     <div class="flow-arrow">↓</div>
+
+    <!-- 判斷點 -->
+    <div class="flow-box" style="font-weight:bold;">
+        判斷：是否持續有登入或互動？
+    </div>
 
     <div class="card-grid">
 
-        <div class="info-card">
-            <h3>🟢 活躍（Active）</h3>
-            <p>持續登入、點擊、瀏覽或消費。</p>
-            <p>系統持續更新推薦與通知。</p>
+        <!-- 左路：活躍 -->
+        <div class="info-card" style="border-left:6px solid #28a745;">
+            <h3>🟢 是 → 活躍（Active）</h3>
+            <p>持續登入 / 點擊 / 瀏覽 / 消費</p>
+            <p>系統持續更新推薦內容</p>
+            <p>維持高優先級曝光</p>
         </div>
 
-        <div class="info-card">
-            <h3>⚫ 不活躍（Inactive）</h3>
-            <p>長時間未登入或無行為紀錄。</p>
-            <p>系統轉為提醒、召回與推播模式。</p>
+        <!-- 右路：不活躍 -->
+        <div class="info-card" style="border-left:6px solid #666;">
+            <h3>⚫ 否 → 不活躍（Inactive）</h3>
+            <p>長時間未登入或無行為紀錄</p>
+            <p>系統降低推薦權重</p>
+            <p>啟動提醒 / 召回通知</p>
         </div>
 
     </div>
 
+    <!-- 收斂 -->
     <div class="flow-arrow">↓</div>
 
-    <div class="flow-box">系統持續依據行為調整推薦與通知</div>
-
+    <div class="flow-box">
+        系統持續監測 → 更新狀態 → 調整推薦與通知
+    </div>
     <div class="thought-box">
         <p>
             在這個機制中，「存在」不是由生命決定，而是由資料流動決定。
