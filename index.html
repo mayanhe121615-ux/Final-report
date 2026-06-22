@@ -52,14 +52,24 @@ body{
     
 /* 封面 */
 .cover{
-    text-align:center;
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .cover img{
     width:100%;
-    max-width:700px;
+    height:100%;
+    object-fit:cover; /* 重點：裁切填滿，不變形 */
+    border-radius:12px; /* 如果想保留頁面圓角 */
 }
-
+.page.cover-page{
+    padding:0;
+    overflow:hidden;
+}
+    
 /* 文字 */
 .chapter-title{
     text-align:center;
@@ -319,7 +329,7 @@ li{
 
 <!-- ================= 封面 ================= -->
 <div class="page">
-    <div class="cover">
+   <div class="page cover-page">
         <img src="封面.png" alt="封面">
     </div>
      </div>
